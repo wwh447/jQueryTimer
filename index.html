@@ -27,6 +27,7 @@
 <li><a href="#%E4%B8%8B%E8%BD%BD">下载</a></li>
 <li><a href="#%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B">快速上手</a></li>
 <li><a href="#%E6%89%80%E6%9C%89%E7%A4%BA%E4%BE%8B">所有示例</a></li>
+<li><a href="#%E5%8F%82%E6%95%B0%E8%AF%B4%E6%98%8E">参数说明</a></li>
 <li><a href="#%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97">更新日志</a></li>
 </ul>
 
@@ -66,12 +67,60 @@ $(<span class="pl-s"><span class="pl-pds">"</span>body<span class="pl-pds">"</sp
 <li><a href="demo/param-fun.html">设定延迟执行函数，开始使用计时器插件</a></li>
 <li><a href="demo/param-time.html">设定回调间隔时间</a></li>
 <li><a href="demo/param-iCount.html">指定回调的次数</a></li>
-<li><a href="demo/immediately.html">指定是否立即执行</a></li>
-<li><a href="demo/callback.html">设置回调函数（所有回调结束以后调用）</a></li>
+<li><a href="demo/param-immediately.html">指定是否立即执行</a></li>
+<li><a href="demo/param-callback.html">设置回调函数（所有回调结束以后调用）</a></li>
 <li><a href="demo/pay0.html">创建倒计时程序</a></li>
 <li><a href="demo/pay1.html">创建计数器程序</a></li>
 <li><a href="demo/pay2.html">动态截取文本显示示例</a></li>
 </ol>
+
+<h2>
+<a id="参数说明" class="anchor" href="#%E5%8F%82%E6%95%B0%E8%AF%B4%E6%98%8E" aria-hidden="true"><span class="octicon octicon-link"></span></a>参数说明</h2>
+
+<p>setTimer 方法接收的可选参数，依照参数顺序列举</p>
+
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>类型</th>
+<th>默认值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>fun</td>
+<td>Function</td>
+<td>$.noop</td>
+<td>计时器延迟执行的回调函数，接受一个可选参数标识当前回调执行的次数，同时接受第二个参数可获得目标次数</td>
+</tr>
+<tr>
+<td>time</td>
+<td>Number</td>
+<td>2000</td>
+<td>计时器回调时间间隔，时间单位是毫秒</td>
+</tr>
+<tr>
+<td>iCount</td>
+<td>Number</td>
+<td>1</td>
+<td>计时器回调次数。小等于0则进行无限循环，直到调用 stopTimer 终止。比如设为 0 或者 -1 时。</td>
+</tr>
+<tr>
+<td>immediately</td>
+<td>Boolean</td>
+<td>false</td>
+<td>是否立即执行。当设置为 true 时立即执行一次回调函数。</td>
+</tr>
+<tr>
+<td>callback</td>
+<td>Function</td>
+<td>$.noop</td>
+<td>计时完成后的回调函数，回调参数达到，所有回调完成后执行的最终回调函数（无限循环回调失效）</td>
+</tr>
+</tbody>
+</table>
 
 <h2>
 <a id="更新日志" class="anchor" href="#%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97" aria-hidden="true"><span class="octicon octicon-link"></span></a>更新日志</h2>
