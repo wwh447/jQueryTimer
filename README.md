@@ -28,14 +28,14 @@ setTimer: function() { /*...*/ }
 
 > stopTimer 停止 jQuery 元素上绑定的计时器
 
-·
+`
 /**
  * 停止计时器.
  * @return (Object)this 支持链式调用.
  * @author Eded.Wang
  */
 stopTimer: function() { /*...*/ }
-·
+`
 
 ## 参考示例
 
