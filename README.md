@@ -22,8 +22,8 @@
 * 实例丰富，学习成本较低
 
 ## 下载
-* [jquery-timer.js](jquery-timer.js) *(开发版,3.0kb)*
-* [jquery-timer-min.js](jquery-timer-min.js) *(生产版,0.7kb)*
+* [jquery-timer.js](http://wwh447.github.io/jQueryTimer/jquery-timer.js) *(开发版,3.0kb)*
+* [jquery-timer-min.js](http://wwh447.github.io/jQueryTimer/jquery-timer-min.js) *(生产版,0.7kb)*
 
 ## 快速上手
 ```javascript
@@ -34,14 +34,14 @@ $("body").setTimer(function() {
 ```
 
 ## 所有示例
-1. [设定延迟执行函数，开始使用计时器插件](demo/param-fun.html)
-2. [设定回调间隔时间](demo/param-time.html)
-3. [指定回调的次数](demo/param-iCount.html)
-4. [指定是否立即执行](demo/param-immediately.html)
-5. [设置回调函数（所有回调结束以后调用）](demo/param-callback.html)
-6. [创建倒计时程序](demo/pay0.html)
-7. [创建计数器程序](demo/pay1.html)
-8. [动态截取文本显示示例](demo/pay2.html)
+1. [设定延迟执行函数，开始使用计时器插件](http://wwh447.github.io/jQueryTimer/demo/param-fun.html)
+2. [设定回调间隔时间](http://wwh447.github.io/jQueryTimer/demo/param-time.html)
+3. [指定回调的次数](http://wwh447.github.io/jQueryTimer/demo/param-iCount.html)
+4. [指定是否立即执行](http://wwh447.github.io/jQueryTimer/demo/param-immediately.html)
+5. [设置回调函数（所有回调结束以后调用）](http://wwh447.github.io/jQueryTimer/demo/param-callback.html)
+6. [创建倒计时程序](http://wwh447.github.io/jQueryTimer/demo/pay0.html)
+7. [创建计数器程序](http://wwh447.github.io/jQueryTimer/demo/pay1.html)
+8. [动态截取文本显示示例](http://wwh447.github.io/jQueryTimer/demo/pay2.html)
 
 ## 参数说明
 
