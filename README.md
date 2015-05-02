@@ -41,6 +41,7 @@ function stopTimer() { /*...*/ }
 ## 参考示例
 
 [Project Home](http://wwh447.github.io/jQueryTimer/)
+
 [DEMO](http://wwh447.github.io/jQueryTimer/#%E6%89%80%E6%9C%89%E7%A4%BA%E4%BE%8B)
 
 ## 创建原因
