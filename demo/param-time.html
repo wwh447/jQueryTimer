@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8" />
+	<title>设定回调间隔时间</title>
+	<style>
+		body{ font-size:12px; }
+		p,pre{ margin:0; padding:0; }
+	</style>
+</head>
+<body>
+	
+	<p>打开控制台检查源码...</p>
+
+	<script src="../source/jquery-1.11.2.min.js"></script>
+	<script src="../jquery-timer-min.js"></script>
+	<script>
+		
+		// 在 window 元素上设置一个计时器
+		// 并且设置1秒后执行（时间以毫秒为单位）.
+		$(window).setTimer(function() {
+			alert("Hello jQuery Timer!");
+		}, 1000);
+		
+	</script>
+	
+</body>
+</html>
