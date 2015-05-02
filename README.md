@@ -27,7 +27,7 @@ setTimer 在 jQuery 元素上绑定计时器
 function setTimer() { /*...*/ }
 ```
 
-> stopTimer 停止 jQuery 元素上绑定的计时器
+stopTimer 停止 jQuery 元素上绑定的计时器
 
 ```javascript
 /**
@@ -40,8 +40,8 @@ function stopTimer() { /*...*/ }
 
 ## 参考示例
 
-> [Project Home](http://wwh447.github.io/jQueryTimer/)
-> [DEMO](http://wwh447.github.io/jQueryTimer/#%E6%89%80%E6%9C%89%E7%A4%BA%E4%BE%8B)
+[Project Home](http://wwh447.github.io/jQueryTimer/)
+[DEMO](http://wwh447.github.io/jQueryTimer/#%E6%89%80%E6%9C%89%E7%A4%BA%E4%BE%8B)
 
 ## 创建原因
 
