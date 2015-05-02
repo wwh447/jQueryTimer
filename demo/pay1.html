@@ -1,0 +1,70 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8" />
+	<title>打字效果示例</title>
+	<style type="text/css">
+	
+	body{ font-size:12px; }
+	.demo{
+		background-color:#f1f1f1;
+		border:1px solid #ccc;
+		border-radius:.4em;
+		box-shadow:0 0 0 1px #fff inset;
+		color:#333;
+		font-size:2em;
+		height:80px;
+		line-height:80px;
+		margin:20px;
+		text-align:center;
+		text-shadow:1px 1px 0 #fff;
+		-webkit-transition:.4s;
+		-moz-transition:.4s;
+		transition:.4s;
+		width:140px;
+	}
+	.demo:hover{
+		background-color:#fffff1;
+		width:340px;
+	}
+	
+	</style>
+</head>
+<body>
+	
+	<div id="demo" class="demo" data-message="这是一个测试…">鼠标放这</div><!-- end demo -->
+	
+	<script src="../source/jquery-1.11.2.min.js"></script>
+	<script src="../jquery-timer-min.js"></script>
+	<script>
+	
+	(function($) {
+		
+		//委派元素的鼠标穿透和离开事件.
+		$("#demo").on({
+			mouseenter: function() {
+				var $that = $(this),  //jQuery 元素缓存当前对象.
+					text = $that.text(),  //缓存当前显示文本.
+					message = $that.text("").data("message");  //清空元素内容，并获取目标提示文字.
+				
+				//把当前文字保存起来.
+				$(this).data("text", text);
+				
+				//设置计时器 回调函数、回调间隔（150ms）、回调次数（为目标文本长度）.
+				$that.setTimer(function(i) {
+					//动态截取文本信息实时写入元素，展示在页面上.
+					$that.text( message.substring(0, i) );
+				}, 150, message.length);
+			},
+			mouseleave: function() {
+				//停止计时器，并且还原显示文本.
+				$(this).stopTimer().text( $(this).data("text") ).data("text", "");
+			}
+		});
+		
+	})(jQuery);
+	
+	</script>
+	
+</body>
+</html>

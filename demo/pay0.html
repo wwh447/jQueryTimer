@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8" />
+	<title>创建倒计时程序</title>
+	<style>
+		body{ font-size:12px; }
+		h3{ font-size:32px; }
+		p,pre{ margin:0; padding:0; }
+	</style>
+</head>
+<body>
+	
+	<h3>10</h3>
+	<p>打开控制台检查源码...</p>
+
+	<script src="../source/jquery-1.11.2.min.js"></script>
+	<script src="../jquery-timer-min.js"></script>
+	<script>
+		
+		// 在 window 元素上设置一个计时器
+		// 并且设置1秒后执行（时间以毫秒为单位）.
+		$("h3:eq(0)").setTimer(function(i, count) {
+			$(this).text(count);
+		}, 1000, 10, true, function() {
+			$(this).text("OK");
+		});
+		
+	</script>
+	
+</body>
+</html>
