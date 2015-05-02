@@ -23,7 +23,7 @@ jQuery.fn.extend({
 	setTimer: function() {
 		var fun = arguments[0] || $.noop, //设置回调函数名称.
 			time = arguments[1] || 2000, //设置回调时间间隔.
-			iCount = arguments[2] || 0, //设置回调次数.
+			iCount = arguments[2] || 1, //设置回调次数.
 			immediately = arguments[3] || false, //回调函数立即执行.
 			callback = arguments[4] || $.noop, //计时完成后的回调函数.
 			iNum = 0, //已经执行的次数.
