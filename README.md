@@ -11,6 +11,7 @@
 ## 主要方法
 
 > setTimer 在 jQuery 元素上绑定计时器
+
 ```javascript
 /**
  * 设置计时器，所有的参数都为可选参数.
@@ -23,7 +24,7 @@
  * @author Eded.Wang
  * @date 2015-03-13 17:13.
  */
-setTimer: function() { /*...*/ }
+function setTimer() { /*...*/ }
 ```
 
 > stopTimer 停止 jQuery 元素上绑定的计时器
@@ -34,7 +35,7 @@ setTimer: function() { /*...*/ }
  * @return (Object)this 支持链式调用.
  * @author Eded.Wang
  */
-stopTimer: function() { /*...*/ }
+function stopTimer() { /*...*/ }
 ```
 
 ## 参考示例
