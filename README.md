@@ -4,9 +4,9 @@
 
 ## 什么是 jQuery Timer
 
-> 依赖 jQuery 的计时器，取代 js 原生的 setTimeout 和 setInterval 等函数。
-> 推荐 jQuery 使用：1.7+。
-> 兼容浏览器：Chrome 14+, Safari 5.0+, IE6+, Firefox 3.5+.
+- 依赖 jQuery 的计时器，取代 js 原生的 setTimeout 和 setInterval 等函数。
+- 推荐 jQuery 使用：1.7+。
+- 兼容浏览器：Chrome 14+, Safari 5.0+, IE6+, Firefox 3.5+.
 
 ## 主要方法
 
