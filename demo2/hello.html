@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8" />
+	<title>开始计时器</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+	<meta name="format-detection" content="telephone=no,email=no,adress=no" />
+	<style>
+		body{ font-size:12px; }
+		button{ height:2rem; padding:0 .8rem; }
+	</style>
+</head>
+<body>
+	
+	<button id="start">Say Hello</button>
+	<button id="end">Cancel</button>
+	
+	<script src="../source/jquery-2.1.4.min.js"></script>
+	<script src="../jquery-timer-2.js"></script>
+	<script>
+	
+		// 在 btn 元素上设置一个计时器，2秒后执行(默认).
+		$("#start").on("click", function() {
+			$(this).timer({
+				"iteration": function() {
+					console.log( $(this).text() );
+				},
+				"count": 3
+			});
+		});
+		
+		// 点击取消计时器.
+		$("#end").on("click", function() {
+			$("#btn1").timer(true);
+		});
+		
+	</script>
+	
+</body>
+</html>
