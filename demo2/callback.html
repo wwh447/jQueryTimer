@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8" />
+	<title>设置计时器完成时的回调函数</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+	<meta name="format-detection" content="telephone=no,email=no,adress=no" />
+	<style>
+		body{ font-size:12px; }
+		input,
+		button{ box-sizing:border-box; height:2rem; padding:0 .8rem; }
+	</style>
+</head>
+<body>
+	
+	<h3>设置计时器完成时的回调函数</h3>
+	<p>请打开控制台检查代码</p>
+	<ol>
+		<li>计时器两秒执行一次</li>
+		<li>计时器执行三次</li>
+		<li>计时器执行结束后运行回调方法</li>
+		<li>* 第二种计时器的设置方式展示 （见源码）</li>
+	</ol>
+	<button id="start">运行计时器</button>
+	
+	<script src="../source/jquery-2.1.4.min.js"></script>
+	<script src="../jquery-timer-2.0.0-min.js"></script>
+	<script>
+	
+		// 在 btn 元素上设置一个计时器.
+		$("#start").on("click", function() {
+			
+			//通过指定参数来配置计时器，计时器完成计时后调用回调函数 (未配置的参数则使用默认值).
+			$(this).timer({
+				//指定计时器的迭代函数.
+				"iteration": function(i, count) {
+					console.log(i, count);
+				},
+				//指定计时器的总迭代次数为3次.
+				"count": 3,
+				//设置计时器的回调函数.
+				"callback": function(i) {
+					alert("计时器共执行了: " + i + "次");
+				}
+			});
+			
+		});
+		
+		/* 也可以通过指定参数顺序来设置，下面的配置结果和上面相等！
+		
+		$(this).timer(function(i, count) {
+			console.log(i, count);
+		}, 2, 3, false, function(i) {
+			alert("计时器共执行了: " + i + "次");
+		});
+		
+		*/
+		
+	</script>
+	
+</body>
+</html>

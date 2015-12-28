@@ -2,29 +2,36 @@
 <html lang="zh-CN">
 <head>
 	<meta charset="UTF-8" />
-	<title>开始计时器</title>
+	<title>计时器应用 - 倒计时程序</title>
 	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
 	<meta name="format-detection" content="telephone=no,email=no,adress=no" />
 	<style>
 		body{ font-size:12px; }
-		button{ height:2rem; padding:0 .8rem; }
+		#count{
+			display:block;
+			font-size:3rem;
+		}
+		input,
+		button{ box-sizing:border-box; height:2rem; padding:0 .8rem; }
+		button:disabled{ color:#999; }
 	</style>
 </head>
 <body>
 	
-	<h3>开始计时器</h3>
+	<h3>计时器应用 - 倒计时程序</h3>
 	<p>请打开控制台检查代码</p>
-	<button id="start">Say Hello</button>
+	<span id="count"></span>
 	
 	<script src="../source/jquery-2.1.4.min.js"></script>
 	<script src="../jquery-timer-2.0.0-min.js"></script>
 	<script>
-	
-		// 在 btn 元素上设置一个计时器，2秒后执行(默认).
-		$("#start").on("click", function() {
-			$(this).timer(function() {
-				alert( $(this).text() );
-			});
+		
+		/* 立即执行一个计时器，倒计时10秒，结束时写入标记 */
+		
+		$("#count").timer(function(i, count) {
+			$(this).text(count - i);
+		}, 1, 10, true, function() {
+			$(this).text("火箭发射！");
 		});
 		
 	</script>

@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8" />
+	<title>放置未激活的计时器，以及手动激活计时器</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+	<meta name="format-detection" content="telephone=no,email=no,adress=no" />
+	<style>
+		body{ font-size:12px; }
+		#count{
+			display:block;
+			font-size:3rem;
+		}
+		input,
+		button{ box-sizing:border-box; height:2rem; padding:0 .8rem; }
+		button:disabled{ color:#999; }
+	</style>
+</head>
+<body>
+	
+	<h3>放置未激活的计时器，以及手动激活计时器</h3>
+	<p>请打开控制台检查代码</p>
+	<ol>
+		<li>计时器一秒执行一次</li>
+		<li>计时器执行无限次数的循环</li>
+		<li>计时器可以开始和被手动停止</li>
+	</ol>
+	<span id="count">0</span>
+	<button id="place">放置一个计时器</button>
+	<button id="start" disabled>激活 #place 放置的计时器</button>
+	<button id="finish" disabled>停止 #place 正在工作的计时器</button>
+	
+	<script src="../source/jquery-2.1.4.min.js"></script>
+	<script src="../jquery-timer-2.0.0-min.js"></script>
+	<script>
+		
+		//单击 在 btn 元素上放置一个计时器，但是不激活它.
+		$("#place").on("click", function() {
+			
+			//通过指定参数来配置计时器，计时器完成计时后调用回调函数 (未配置的参数则使用默认值).
+			$(this).timer({
+				//指定计时器的迭代函数.
+				"iteration": function(i, count) {
+					$("#count").text(i);
+				},
+				//指定迭代间隔为每秒一次.
+				"duration": 1,
+				//指定计时器的总迭代次数为无限迭代.
+				"count": -1,
+				//计时器激活后率先执行一次.
+				"quick": true,
+				//不激活计时器.
+				"actived": false,
+				//计时器从 1 开始计数.
+				"i": 1
+			});
+			
+			//放置以后禁用放置按钮.
+			$("#place").prop("disabled", true);
+			//启用激活按钮.
+			$("#start").prop("disabled", false);
+			
+		});
+		
+		//单击 激活 place 上的计时器.
+		$("#start").on("click", function() {
+			
+			//直接激活计时器
+			$("#place").timer("play");
+			
+			//重设计时器的执行时间间隔为两秒一次，并激活计时器.
+			//$("#place").timer(2);
+			
+			//激活计时器以后，激活按钮禁用.
+			$("#start").prop("disabled", true);
+			//停止按钮启用 .
+			$("#finish").prop("disabled", false);
+		});
+		
+		//单击 终止计时器.
+		$("#finish").on("click", function() {
+			
+			//终止计时器  *注意 这个方法等同: $("#place").timer(true)
+			$("#place").timer("finish");
+			
+			//禁用停止按钮.
+			$("#finish").prop("disabled", true);
+			//终止计时器以后放置按钮可再用.
+			$("#place").prop("disabled", false);
+		});
+		
+	</script>
+	
+</body>
+</html>

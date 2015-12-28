@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8" />
+	<title>指定计时器的循环次数</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+	<meta name="format-detection" content="telephone=no,email=no,adress=no" />
+	<style>
+		body{ font-size:12px; }
+		input,
+		button{ box-sizing:border-box; height:2rem; padding:0 .8rem; }
+	</style>
+</head>
+<body>
+	
+	<h3>指定计时器的循环次数：</h3>
+	<p>请打开控制台检查代码</p>
+	<input type="number" id="count" max="50" min="-1" value="1" placeholder="请输入迭代次数" />
+	<button id="start">就这个次数，2秒执行一次</button>
+	
+	<script src="../source/jquery-2.1.4.min.js"></script>
+	<script src="../jquery-timer-2.0.0-min.js"></script>
+	<script>
+	
+		// 在 btn 元素上设置一个计时器，设置指定的时间间隔后.
+		$("#start").on("click", function() {
+			
+			//缓存当前元素.
+			var $that = $(this);
+			
+			$that.timer(function(i, count) {
+				console.log(i, count);
+			}, 2, $that.prev().val() );
+		});
+		
+		/* 注意，计时器迭代次数设置为 0 或者 -1 就会进入无限迭代。必须有暂停或终止计时器的代码，否则就会一直运行下去 */
+		/* 暂停和继续，以及终止计时器的操作方法参见DEMO列表中的示例 */
+		
+	</script>
+	
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8" />
+	<title>用JSON的参数形式来配置计时器</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+	<meta name="format-detection" content="telephone=no,email=no,adress=no" />
+	<style>
+		body{ font-size:12px; }
+		input,
+		button{ box-sizing:border-box; height:2rem; padding:0 .8rem; }
+	</style>
+</head>
+<body>
+	
+	<h3>用JSON的参数形式来配置计时器(指定部分参数)：</h3>
+	<p>请打开控制台检查代码</p>
+	<button id="start">运行计时器</button>
+	
+	<script src="../source/jquery-2.1.4.min.js"></script>
+	<script src="../jquery-timer-2.0.0-min.js"></script>
+	<script>
+	
+		// 在 btn 元素上设置一个计时器，设置指定的时间间隔后.
+		$("#start").on("click", function() {
+			
+			//每两秒输出一下当前迭代进度，以及系统时间戳.
+			$(this).timer({
+				//i 标识当前进度，count 标识总计的目标次数.
+				"iteration": function(i, count) {
+					console.log( i + "/" + count + "/" + Date.now() );
+				},
+				//计时器执行的时间间隔.
+				"duration": 2,
+				//计时器执行三次.
+				"count": 3,
+				//计时器立即执行.
+				"quick": true,
+				"callback": function(i, count) {
+					console.log("计时器总共执行了: " + i + "次");
+				}
+			});
+		});
+		
+	</script>
+	
+</body>
+</html>

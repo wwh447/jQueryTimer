@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8" />
+	<title>计时器暂停和继续以及停止示例</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+	<meta name="format-detection" content="telephone=no,email=no,adress=no" />
+	<style>
+		body{ font-size:12px; }
+		#count{
+			display:block;
+			font-size:3rem;
+		}
+		input,
+		button{ box-sizing:border-box; height:2rem; padding:0 .8rem; }
+		button:disabled{ color:#999; }
+	</style>
+</head>
+<body>
+	
+	<h3>计时器暂停和继续以及停止示例</h3>
+	<p>请打开控制台检查代码</p>
+	<ol>
+		<li>自动运行计时器</li>
+		<li>计时器一秒执行一次</li>
+		<li>计时器执行八次</li>
+		<li>计时器可以被手动暂停</li>
+		<li>计时器可以被手动继续</li>
+		<li>计时器可以被手动终止</li>
+	</ol>
+	<span id="count"></span>
+	<button id="play" disabled>计时器继续</button>
+	<button id="stop">计时器暂停</button>
+	<button id="finish">彻底终止计时器</button>
+	
+	<script src="../source/jquery-2.1.4.min.js"></script>
+	<script src="../jquery-timer-2.0.0-min.js"></script>
+	<script>
+		
+		//通过指定参数来配置计时器，计时器完成计时后调用回调函数 (未配置的参数则使用默认值).
+		var $body = $("body").timer({
+			//指定计时器的迭代函数.
+			"iteration": function(i, count) {
+				$("#count").text(i + "/" + count);
+			},
+			//指定迭代间隔为每秒一次.
+			"duration": 1,
+			//指定计时器的总迭代次数为八次.
+			"count": 8,
+			//率先执行一次.
+			"quick": true,
+			//计时完成的回调函数.
+			"callback": function() {
+				/* 暂停不会调用！计时器迭代完成，或者被终止会立即调用 */
+				console.log("计时完成");
+			}
+		});
+		
+		//单击 计时器继续上次未完成的计时.
+		$("#play").on("click", function() {
+			
+			//直接激活计时器
+			$body.timer("play");
+			
+			//计时器继续以后，继续按钮不可用.
+			$("#play").prop("disabled", true);
+			//激活计时器以后，激活按钮禁用.
+			$("#stop").prop("disabled", false);
+			//停止按钮启用 .
+			$("#finish").prop("disabled", false);
+		});
+		
+		//单击 计时器暂停（状态保存，可以继续）
+		$("#stop").on("click", function() {
+			
+			//暂停计时器.
+			$body.timer("stop");
+			
+			//计时器暂停以后，继续按钮可以使用.
+			$("#play").prop("disabled", false);
+			//暂停后禁用暂停按钮.
+			$("#stop").prop("disabled", true);
+			//暂停后禁用终止按钮按钮.
+			$("#finish").prop("disabled", true);
+			
+		});
+		
+		//单击 终止计时器.
+		$("#finish").on("click", function() {
+			
+			//终止计时器
+			$body.timer(true);
+			
+			//终止计时器以后，所有按钮禁用.
+			$("#play").prop("disabled", true);
+			$("#stop").prop("disabled", true);
+			$("#finish").prop("disabled", true);
+			
+			/* 注意：终止计时器会自动调用完成函数 */
+		});
+		
+	</script>
+	
+</body>
+</html>

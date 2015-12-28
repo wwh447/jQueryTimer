@@ -18,8 +18,9 @@
     </section>
 
     <section class="main-content">
-      <h2>
-<a id="jquery-timer" class="anchor" href="#jquery-timer" aria-hidden="true"><span class="octicon octicon-link"></span></a>jQuery Timer</h2>
+    <h2>
+		<a id="jquery-timer" class="anchor" href="#jquery-timer" aria-hidden="true"><span class="octicon octicon-link"></span></a>jQuery Timer
+	</h2>
 
 <p>欢迎贡献代码，以及 <a href="#%E6%89%80%E6%9C%89%E7%A4%BA%E4%BE%8B">DEMO</a> 和 BUG</p>
 
@@ -27,9 +28,9 @@
 <a id="什么是-jquery-timer" class="anchor" href="#%E4%BB%80%E4%B9%88%E6%98%AF-jquery-timer" aria-hidden="true"><span class="octicon octicon-link"></span></a>什么是 jQuery Timer</h2>
 
 <ul>
-<li>依赖 jQuery 的计时器，取代 js 原生的 setTimeout 和 setInterval 等函数。</li>
-<li>推荐 jQuery 使用：1.7+。</li>
-<li>兼容浏览器：Chrome 14+, Safari 5.0+, IE6+, Firefox 3.5+.</li>
+<li>为 jQuery 量身定制的计时器，取代 js 原生的 setTimeout 和 setInterval 函数，管理更简单。</li>
+<li>兼容所有主流PC和移动浏览器，并且完美支持 jQuery 2.x</li>
+<li>可以使用在简单倒计时、幻灯片程序、事件执行频率控制、以及所有需要计时器完成的地方</li>
 </ul>
 
 <h2>
@@ -48,9 +49,12 @@
 <a id="特性" class="anchor" href="#%E7%89%B9%E6%80%A7" aria-hidden="true"><span class="octicon octicon-link"></span></a>特性</h2>
 
 <ul>
-<li>兼容最新的 jQuery</li>
-<li>方法较少，使用简单便捷</li>
-<li>实例丰富，学习成本较低</li>
+<li>结合最新的 jQuery，血统优良</li>
+<li>只需记忆一个API，使用简单便捷</li>
+<li>为 jQuery 量身定制，元素调用计时器更加便捷</li>
+<li>实例丰富，学习成本低，源码中文注释</li>
+<li>方法灵活全面，能够应付大部分计时器使用场景</li>
+<li>生产版大小仅有2KB，容易集成到更复杂的插件中</li>
 </ul>
 
 <h2>
@@ -58,10 +62,10 @@
 
 <ul>
 <li>
-<a href="jquery-timer.js">jquery-timer.js</a> <em>(开发版,3.0kb)</em>
+<a href="jquery-timer.js">jquery-timer-2.0.0.js</a> <em>(开发版,7.8kb)</em>
 </li>
 <li>
-<a href="jquery-timer-min.js">jquery-timer-min.js</a> <em>(生产版,0.7kb)</em>
+<a href="jquery-timer-min.js">jquery-timer-2.0.0-min.js</a> <em>(生产版,2.1kb)</em>
 </li>
 </ul>
 
@@ -69,7 +73,7 @@
 <a id="快速上手" class="anchor" href="#%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B" aria-hidden="true"><span class="octicon octicon-link"></span></a>快速上手</h2>
 
 <div class="highlight highlight-javascript"><pre><span class="pl-c">//两秒以后弹出对话框.</span>
-$(<span class="pl-s"><span class="pl-pds">"</span>body<span class="pl-pds">"</span></span>).setTimer(<span class="pl-k">function</span>() {
+$(<span class="pl-s"><span class="pl-pds">"</span>body<span class="pl-pds">"</span></span>).timer(<span class="pl-k">function</span>() {
     <span class="pl-c1">alert</span>(<span class="pl-s"><span class="pl-pds">"</span>Hello jQuery Timer!<span class="pl-pds">"</span></span>);
 });</pre></div>
 
@@ -77,20 +81,23 @@ $(<span class="pl-s"><span class="pl-pds">"</span>body<span class="pl-pds">"</sp
 <a id="所有示例" class="anchor" href="#%E6%89%80%E6%9C%89%E7%A4%BA%E4%BE%8B" aria-hidden="true"><span class="octicon octicon-link"></span></a>所有示例</h2>
 
 <ol>
-<li><a href="demo/param-fun.html">设定延迟执行函数，开始使用计时器插件</a></li>
-<li><a href="demo/param-time.html">设定回调间隔时间</a></li>
-<li><a href="demo/param-iCount.html">指定回调的次数</a></li>
-<li><a href="demo/param-immediately.html">指定是否立即执行</a></li>
-<li><a href="demo/param-callback.html">设置回调函数（所有回调结束以后调用）</a></li>
-<li><a href="demo/pay0.html">创建倒计时程序</a></li>
-<li><a href="demo/pay1.html">创建计数器程序</a></li>
-<li><a href="demo/pay2.html">动态截取文本显示示例</a></li>
+<li><a href="demo2/hello.html">开始计时器</a></li>
+<li><a href="demo2/duration.html">指定计时器的时间间隔</a></li>
+<li><a href="demo2/count.html">指定计时器的循环次数</a></li>
+<li><a href="demo2/quick.html">让计时器立即开始执行</a></li>
+<li><a href="demo2/callback.html">设置计时器完成时的回调函数</a></li>
+<li><a href="demo2/json.html">用JSON的参数形式来配置计时器</a></li>
+<li><a href="demo2/actived.html">放置未激活的计时器，以及手动激活计时器</a></li>
+<li><a href="demo2/pause.html">计时器暂停和继续以及停止示例</a></li>
+<li><a href="demo2/count-down.html">计时器应用 - 倒计时程序</a></li>
+<li><a href="demo2/typist.html">计时器应用 - 经典打字效果</a></li>
 </ol>
 
 <h2>
 <a id="参数说明" class="anchor" href="#%E5%8F%82%E6%95%B0%E8%AF%B4%E6%98%8E" aria-hidden="true"><span class="octicon octicon-link"></span></a>参数说明</h2>
 
-<p>setTimer 方法接收的可选参数，依照参数顺序列举</p>
+<p>timer 方法接收的可选参数，依照参数顺序列举。</p>
+<p>可以按照顺序给出可选参数，也可以传入JSON格式配置指定参数。</p>
 
 <table>
 <thead>
