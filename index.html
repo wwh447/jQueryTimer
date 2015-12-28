@@ -99,48 +99,57 @@ $(<span class="pl-s"><span class="pl-pds">"</span>body<span class="pl-pds">"</sp
 <p>timer 方法接收的可选参数，依照参数顺序列举。</p>
 <p>可以按照顺序给出可选参数，也可以传入JSON格式配置指定参数。</p>
 
-<table>
-<thead>
+<table><thead>
 <tr>
 <th>参数</th>
 <th>类型</th>
 <th>默认值</th>
 <th>说明</th>
 </tr>
-</thead>
-<tbody>
+</thead><tbody>
 <tr>
-<td>fun</td>
+<td>iteration</td>
 <td>Function</td>
-<td>$.noop</td>
-<td>计时器延迟执行的回调函数，接受一个可选参数标识当前回调执行的次数，同时接受第二个参数可获得目标次数</td>
+<td>空函数</td>
+<td>计时器执行的迭代函数，接受两个可选参数。第一个标识当前回调执行的次数，第二个参数标识迭代的目标次数</td>
 </tr>
 <tr>
-<td>time</td>
+<td>duration</td>
 <td>Number</td>
-<td>2000</td>
-<td>计时器回调时间间隔，时间单位是毫秒</td>
+<td>2</td>
+<td>计时器迭代时间间隔，时间单位是秒，默认为2秒</td>
 </tr>
 <tr>
-<td>iCount</td>
+<td>count</td>
 <td>Number</td>
 <td>1</td>
-<td>计时器回调次数。小等于0则进行无限循环，直到调用 stopTimer 终止。比如设为 0 或者 -1 时。</td>
+<td>计时器迭代目标次数。如果设置为 -1 或 0 则无限迭代，直到被设为停止。</td>
 </tr>
 <tr>
-<td>immediately</td>
+<td>quick</td>
 <td>Boolean</td>
 <td>false</td>
-<td>是否立即执行。当设置为 true 时立即执行一次回调函数。</td>
+<td>是否设置计时器后，就立即先执行一次. 如果设置 true ，计时器放置后就率先执行一次，而不必等待第一次计时结束</td>
 </tr>
 <tr>
 <td>callback</td>
 <td>Function</td>
-<td>$.noop</td>
-<td>计时完成后的回调函数，回调参数达到，所有回调完成后执行的最终回调函数（无限循环回调失效）</td>
+<td>空函数</td>
+<td>计时器走完计时后的回调函数, 所有迭代完成后执行. 无限循环退出时自动执行，或者配置为手动触发。</td>
 </tr>
-</tbody>
-</table>
+<tr>
+<td>i</td>
+<td>Number</td>
+<td>0</td>
+<td>计时器索引的起始值，记录计时器已执行的次数。未设置则从 0 开始计数.</td>
+</tr>
+<tr>
+<td>actived</td>
+<td>Boolean</td>
+<td>true</td>
+<td>处于激活状态的计时器才会工作，否则被手动激活后才开始工作.</td>
+</tr>
+</tbody></table>
 
 <p><a href="http://wwh447.github.io/jQueryTimer/">Project Home</a></p>
 
